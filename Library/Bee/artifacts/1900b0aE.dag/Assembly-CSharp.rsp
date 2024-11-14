@@ -356,6 +356,8 @@
 "Assets/Scenes/script/player.cs"
 "Assets/Scenes/script/players.cs"
 "Assets/Scenes/script/regeneration.cs"
+"Assets/Scenes/script/score.cs"
+"Assets/score.cs"
 -langversion:9.0
 /deterministic
 /optimize+

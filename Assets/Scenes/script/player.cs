@@ -35,7 +35,7 @@ public class player : MonoBehaviour
     {
         animator.SetBool(Name, false);
     }
-    private bool isJumpDown = false;
+   // private bool isJumpDown = false;
     
     private void OnAnimatorMove()
     {
