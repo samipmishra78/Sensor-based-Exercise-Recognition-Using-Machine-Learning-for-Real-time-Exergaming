@@ -78,7 +78,7 @@ ScriptsOnlyBuild:
     methodName: StartGame
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
-    methodName: QuitGame
+    methodName: StartGame
   sceneClasses:
     Assets/game.unity:
     - Class: 1
@@ -176,31 +176,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -209,17 +191,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1612}
     - Class: 114
-      Script: {instanceID: 1688}
-    - Class: 114
-      Script: {instanceID: 1954}
-    - Class: 114
       Script: {instanceID: 2616}
     - Class: 114
       Script: {instanceID: 2818}
     - Class: 114
       Script: {instanceID: 3106}
-    - Class: 114
-      Script: {instanceID: 3630}
     - Class: 114
       Script: {instanceID: 5268}
     - Class: 114
@@ -231,10 +207,6 @@ ScriptsOnlyBuild:
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
