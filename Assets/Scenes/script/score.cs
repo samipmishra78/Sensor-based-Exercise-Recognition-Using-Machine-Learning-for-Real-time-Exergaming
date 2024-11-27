@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance; // Singleton for global access
-    public int Score { get; private set; } // Current score
+    public static ScoreManager Instance { get; private set; }
+
+    public int Score { get; private set; }
 
     private void Awake()
     {
-        // Singleton pattern
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the score manager persistent between scenes
+            Destroy(gameObject); // Ensure only one instance exists
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist this object across scenes
     }
 
     public void AddScore(int amount)
@@ -26,6 +25,6 @@ public class ScoreManager : MonoBehaviour
 
     public void ResetScore()
     {
-        Score = 0;
+        Score = 0; // Reset score to zero
     }
 }

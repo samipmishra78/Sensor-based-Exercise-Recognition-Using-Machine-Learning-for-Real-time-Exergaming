@@ -1,27 +1,36 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // For UI elements
 
 public class GameOverManager : MonoBehaviour
 {
-    public Text scoreText; // Reference to the UI Text element to display the score
-
-    private void Start()
-    {
-        // Display the score on the Game Over screen
-        scoreText.text = "Score: " + ScoreManager.Instance.Score;
-    }
-
     public void RetryGame()
     {
-        // Reset the score
-        ScoreManager.Instance.ResetScore();
+        // Reset the score (if you have a ScoreManager)
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
 
-        // Load the main game scene
-        SceneManager.LoadScene("game");
+        // Reset the tile positions
+        TrackManager trackManager = FindObjectOfType<TrackManager>();
+        if (trackManager != null)
+        {
+            trackManager.ResetTiles(); // Reset the tiles to their original positions
+        }
+
+        // Reload the Game Scene
+        SceneManager.LoadScene("game"); // Replace "game" with your actual scene name if it's different
     }
-    public void menu()
+
+    public void QuitToMenu()
     {
+        // Reset the score
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
+
+        // Load the Menu Scene
         SceneManager.LoadScene("mainmenu");
     }
 }
