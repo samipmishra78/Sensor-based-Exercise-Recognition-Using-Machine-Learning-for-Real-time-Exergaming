@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scenes\script\mainmenu.cs" />
     <Compile Include="Assets\score.cs" />
+    <Compile Include="Assets\Scenes\script\game over.cs" />
     <Compile Include="Assets\Scenes\script\PlayerCollisionHandler.cs" />
     <Compile Include="Assets\Scenes\script\naya_player.cs" />
     <Compile Include="Assets\slide.cs" />

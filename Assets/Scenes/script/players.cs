@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Required for scene management
 
 public class players : MonoBehaviour
 {
@@ -51,6 +52,12 @@ public class players : MonoBehaviour
             return; // Prevent other inputs before the game starts
         }
 
+        if (gameStarted)
+        {
+            // Add score based on time or distance
+            ScoreManager.Instance.AddScore(1); // Add 1 point per frame (adjust this as needed)
+        }
+
         // Movement and actions during gameplay
         if (Input.GetKey(KeyCode.S)) // Trigger slide
         {
@@ -66,6 +73,12 @@ public class players : MonoBehaviour
             animator.SetBool("slide", false); // Reset slide animation
             animator.SetBool("jump", false);  // Reset jump animation
             ResetCollider(); // Reset collider when not sliding
+        }
+
+        // Check if the "fall" animation is active
+        if (animator.GetBool("fall"))
+        {
+            GameOver();
         }
     }
 
@@ -147,5 +160,12 @@ public class players : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("Game is exiting...");
 #endif
+    }
+
+    // Function to handle game over
+    private void GameOver()
+    {
+        // Load the Game Over scene
+        SceneManager.LoadScene("gameover");
     }
 }

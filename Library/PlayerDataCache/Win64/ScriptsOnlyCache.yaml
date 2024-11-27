@@ -1,10 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - GameOverManager
     - MainMenu
+    - ScoreManager
     - TrackManager
     - players
-    - scores
     - slide
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -79,6 +80,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: StartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GameOverManager
+    methodName: RetryGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GameOverManager
+    methodName: menu
   sceneClasses:
     Assets/game.unity:
     - Class: 1
@@ -98,8 +105,6 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
@@ -128,27 +133,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1954}
     - Class: 114
-      Script: {instanceID: 2196}
-    - Class: 114
       Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2818}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3630}
+      Script: {instanceID: 3632}
     - Class: 114
-      Script: {instanceID: 4080}
+      Script: {instanceID: 4846}
     - Class: 114
-      Script: {instanceID: 4330}
+      Script: {instanceID: 5026}
     - Class: 114
-      Script: {instanceID: 4844}
+      Script: {instanceID: 5572}
     - Class: 114
-      Script: {instanceID: 5024}
+      Script: {instanceID: 5722}
     - Class: 114
-      Script: {instanceID: 5570}
-    - Class: 114
-      Script: {instanceID: 5720}
-    - Class: 114
-      Script: {instanceID: 6034}
+      Script: {instanceID: 6036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -167,7 +166,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/mainmenu.unity:
+    Assets/gameover.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -193,17 +192,86 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2818}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 3106}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 5268}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 5570}
+      Script: {instanceID: 4846}
     - Class: 114
-      Script: {instanceID: 6034}
+      Script: {instanceID: 5026}
     - Class: 114
-      Script: {instanceID: 7404}
+      Script: {instanceID: 5270}
+    - Class: 114
+      Script: {instanceID: 5572}
+    - Class: 114
+      Script: {instanceID: 5722}
+    - Class: 114
+      Script: {instanceID: 6036}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/mainmenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1612}
+    - Class: 114
+      Script: {instanceID: 2196}
+    - Class: 114
+      Script: {instanceID: 2616}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3108}
+    - Class: 114
+      Script: {instanceID: 4082}
+    - Class: 114
+      Script: {instanceID: 4332}
+    - Class: 114
+      Script: {instanceID: 5026}
+    - Class: 114
+      Script: {instanceID: 5270}
+    - Class: 114
+      Script: {instanceID: 5572}
+    - Class: 114
+      Script: {instanceID: 6036}
+    - Class: 114
+      Script: {instanceID: 7406}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -347,6 +415,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: EventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 3af0c7196498a0abbb90fedc26112059
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameOverManager
   - hash:
       serializedVersion: 2
       Hash: 52db48e3be0a2b4f8b06f918fd1ebfbc
@@ -721,10 +795,10 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 8e24f3d11a8605f113169163620dd2d1
+      Hash: 932f54f5129f624daa93fc34be5093e0
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: scores
+    className: ScoreManager
   - hash:
       serializedVersion: 2
       Hash: 47ee34eb8b6021efa0289dbbb17a5a85
@@ -1105,6 +1179,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/game.unity
   - Assets/mainmenu.unity
-  playerPath: C:/Users/SAMIP_2/Downloads/project.exe
+  - Assets/game.unity
+  - Assets/gameover.unity
+  playerPath: C:/Users/SAMIP_2/Downloads/project_Data/project.exe
