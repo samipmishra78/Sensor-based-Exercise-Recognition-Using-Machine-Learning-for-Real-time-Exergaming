@@ -269,6 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300e36a0ca079134a91a4175d6af6dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  finalScoreText: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  scoreInterval: 1
 --- !u!1 &474721916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1039,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2065693075}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: menu
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1174,7 +1178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297c9f9b9e2d08d4aa88c37ff73cdf95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
 --- !u!1 &2084082760
 GameObject:
   m_ObjectHideFlags: 0

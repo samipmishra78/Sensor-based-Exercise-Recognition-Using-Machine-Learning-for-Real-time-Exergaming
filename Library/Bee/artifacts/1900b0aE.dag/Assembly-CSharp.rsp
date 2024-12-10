@@ -354,6 +354,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scenes/script/FloatingOrigin.cs"
 "Assets/Scenes/script/game over.cs"
+"Assets/Scenes/script/gamescneD.cs"
 "Assets/Scenes/script/mainmenu.cs"
 "Assets/Scenes/script/naya_player.cs"
 "Assets/Scenes/script/player.cs"
@@ -361,6 +362,8 @@
 "Assets/Scenes/script/players.cs"
 "Assets/Scenes/script/regeneration.cs"
 "Assets/Scenes/script/score.cs"
+"Assets/Scenes/script/ScoreManager.cs"
+"Assets/Scenes/script/TotalScore.cs"
 "Assets/score.cs"
 "Assets/slide.cs"
 -langversion:9.0

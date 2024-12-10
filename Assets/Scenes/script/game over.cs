@@ -5,11 +5,11 @@ public class GameOverManager : MonoBehaviour
 {
     public void RetryGame()
     {
-        // Reset the score (if you have a ScoreManager)
+     /*   // Reset the score (if you have a ScoreManager)
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.ResetScore();
-        }
+        }*/
 
         // Reset the tile positions
         TrackManager trackManager = FindObjectOfType<TrackManager>();
@@ -24,11 +24,12 @@ public class GameOverManager : MonoBehaviour
 
     public void QuitToMenu()
     {
-        // Reset the score
+        // Reset the score 
+        /*
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.ResetScore();
-        }
+        }*/
 
         // Load the Menu Scene
         SceneManager.LoadScene("mainmenu");
