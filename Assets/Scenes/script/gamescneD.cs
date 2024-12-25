@@ -11,13 +11,14 @@ public class GameplayScoreDisplay : MonoBehaviour
         // Update the score display during gameplay
         if (scoreText != null)
         {
-            scoreText.text = "SCORE: " + ScoreManager.Instance.GetCurrentScore().ToString();
+      //      scoreText.text = "SCORE: " + ScoreManager.Instance.GetCurrentScore().ToString();
         }
     }
 
     public void AddScore(int amount)
     {
         // Add to the score (can be called by game events)
-        ScoreManager.Instance.AddScore(amount);
+      //  ScoreManager.Instance.AddScore(amount);
     }
+
 }

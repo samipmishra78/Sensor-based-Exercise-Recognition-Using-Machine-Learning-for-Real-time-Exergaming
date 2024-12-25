@@ -4,14 +4,11 @@ using TMPro;
 public class GameOverScoreDisplay : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI totalScoreText; // UI Text for displaying the final score
+    private TextMeshProUGUI scoreDisplayText; // Reference to the TextMeshProUGUI component for displaying the score
 
-    private void Start()
+    void Start()
     {
-        // Display the final score
-        if (totalScoreText != null)
-        {
-            totalScoreText.text = "TOTAL SCORE: " + ScoreManager.Instance.GetCurrentScore().ToString();
-        }
+        // Retrieve the final score from the scores script and display it
+        scoreDisplayText.text = "FINAL SCORE: " + scores.finalScore.ToString();
     }
 }

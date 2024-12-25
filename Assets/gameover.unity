@@ -266,13 +266,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 260725333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 300e36a0ca079134a91a4175d6af6dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a3984433f64d10488cc0a014cbb0081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  finalScoreText: {fileID: 0}
-  gameOverMenu: {fileID: 0}
-  scoreInterval: 1
+  scoreDisplayText: {fileID: 260725335}
 --- !u!1 &474721916
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +282,7 @@ GameObject:
   - component: {fileID: 474721920}
   - component: {fileID: 474721919}
   - component: {fileID: 474721918}
+  - component: {fileID: 474721921}
   m_Layer: 5
   m_Name: RETRY
   m_TagString: Untagged
@@ -406,6 +404,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474721916}
   m_CullTransparentMesh: 1
+--- !u!114 &474721921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474721916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74cac14811f02c845a4c373304295520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tiles: []
 --- !u!1 &515381920
 GameObject:
   m_ObjectHideFlags: 0

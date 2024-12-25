@@ -1,76 +1,61 @@
 using UnityEngine;
 using TMPro;
 
-public class Scores : MonoBehaviour
+public class scores : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI scoreText;  // UI element for the current score display during gameplay
+    private TextMeshProUGUI scoreText;  // Reference to the TextMeshProUGUI component for displaying the score
 
-    [SerializeField]
-    private TextMeshProUGUI finalScoreText;  // UI element for displaying the final score in the Game Over menu
+    private int score = 0;  // Integer to hold the score
+    private float timer = 0f;  // Timer to control when to increment score
+    public float scoreInterval = 1f;  // Interval in seconds for score increment
+    private bool isStopped = false;  // Flag to stop score updating
 
-    [SerializeField]
-    private GameObject gameOverMenu;  // Game Over menu panel
-
-    private int score = 0;  // Variable to hold the score
-    private float timer = 0f;  // Timer to control score updates
-    public float scoreInterval = 1f;  // Time interval for score increment
-    private bool isStopped = false;  // Flag to stop score updates
+    public static int finalScore = 0;  // Static variable to store the score for the Game Over screen
 
     void Start()
     {
-        ResetGame();  // Initialize the game state
+        UpdateScoreText();  // Update the UI at the start
     }
 
     void Update()
     {
-        // Only update score if the game is not stopped
+        // Only update score if not stopped
         if (!isStopped)
         {
-            // Increment the timer
-            timer += Time.deltaTime;
-
-            // Check if the timer has reached the interval
-            if (timer >= scoreInterval)
+            // Check if the player is pressing W, S, or Space
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
             {
-                score += 1;  // Increment the score
-                timer = 0f;  // Reset the timer
-                UpdateScoreText();  // Update the score on the UI
+                // Accumulate time
+                timer += Time.deltaTime;
+
+                // Check if the timer has reached the score interval
+                if (timer >= scoreInterval)
+                {
+                    score += 1;  // Increase score by 1
+                    GameManagers.currentScore = score;  // Access via class name, since currentScore is static
+                    timer = 0f;  // Reset timer
+                    UpdateScoreText();  // Update the displayed score
+                }
             }
         }
     }
 
-    // Updates the current score in the gameplay UI
+    // Function to update the score text on the UI
     private void UpdateScoreText()
     {
         scoreText.text = "SCORE: " + score.ToString();
     }
 
-    // Handles collision and stops the score update
+    // Collision detection to stop score updating
     private void OnTriggerEnter(Collider other)
     {
-        // Replace "YourObjectTag" with the tag of the object to detect
+        // If the player collides with an obstacle, stop the score update and trigger Game Over
         if (other.CompareTag("obs"))
         {
-            isStopped = true;  // Stop the score increment
-            ShowGameOverMenu();  // Display the Game Over menu
+            isStopped = true;  // Stop score updating
+            finalScore = score;  // Store the final score for the Game Over screen
+            GameManagers.instance.SetGameOver();  // Call the Game Over function to switch scenes
         }
-    }
-
-    // Displays the Game Over menu and updates the final score
-    private void ShowGameOverMenu()
-    {
-        gameOverMenu.SetActive(true);  // Show the Game Over menu
-        finalScoreText.text = "FINAL SCORE: " + score.ToString();  // Display the final score
-    }
-
-    // Resets the game state and hides the Game Over menu
-    public void ResetGame()
-    {
-        score = 0;  // Reset the score
-        timer = 0f;  // Reset the timer
-        isStopped = false;  // Allow score updates
-        UpdateScoreText();  // Update the UI with the reset score
-        gameOverMenu.SetActive(false);  // Hide the Game Over menu
     }
 }

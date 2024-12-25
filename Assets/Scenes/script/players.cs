@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
+using UnityEngine.SceneManagement; // Required for scene management
 
 public class players : MonoBehaviour
 {
@@ -10,8 +9,10 @@ public class players : MonoBehaviour
 
     private Vector3 originalCenter;
     private float originalHeight;
+    private bool isJumpDown = false;
     private bool gameStarted = false; // Flag to check if the game has started
-    private bool isGameOver = false; // Flag to prevent multiple triggers of game over
+
+    public static int CurrentTile = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,8 @@ public class players : MonoBehaviour
 
         if (!gameStarted)
         {
-            // Wait for the player to press the space bar to start the game
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Wait for the player to press the W key to start the game
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 StartRunning();
                 gameStarted = true; // Set the game as started
@@ -51,79 +52,79 @@ public class players : MonoBehaviour
             return; // Prevent other inputs before the game starts
         }
 
-        if (!isGameOver)
+        // Movement and actions during gameplay
+        if (Input.GetKey(KeyCode.S)) // Trigger slide
         {
-            HandleMovement();
+            animator.SetBool("slide", true);
+            AdjustColliderForSlide();
         }
-    }
-
-    private void HandleMovement()
-    {
-        // Jump logic (trigger on Space key press)
-        if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.Space)) // Trigger jump
         {
-            animator.SetBool("jump", true); // Trigger jump animation
-            StartCoroutine(ResetAnimation("jump")); // Reset jump animation after a short delay
+            animator.SetBool("jump", true);
+            ResetCollider(); // Reset collider after jumping
         }
-
-        // Slide logic (trigger on S key press)
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.W)) // Trigger running
         {
-            animator.SetBool("slide", true); // Trigger slide animation
-            AdjustColliderForSlide(); // Adjust the collider for sliding
+            animator.SetBool("run", true);
+            animator.SetBool("idle", false); // Ensure idle is off while running
+            ResetCollider();
         }
         else
         {
-            animator.SetBool("slide", false); // Reset slide animation
-            ResetCollider(); // Reset collider to original values
-        }
-
-        // Running logic (trigger on W key press)
-        if (Input.GetKey(KeyCode.W))
-        {
-            animator.SetBool("run", true); // Trigger running animation
-        }
-        else
-        {
-            animator.SetBool("run", false); // Reset running animation
-        }
-
-        // Default state: idle
-        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
-        {
+            // Default to idle when no key is pressed
             animator.SetBool("idle", true);
+            animator.SetBool("run", false);
+            animator.SetBool("slide", false);
+            animator.SetBool("jump", false);
+            ResetCollider(); // Reset collider to default size and position
         }
-        else
+
+        // Check if the "fall" animation is active
+        if (animator.GetBool("fall"))
         {
-            animator.SetBool("idle", false);
+            GameOver();
         }
     }
 
-    private IEnumerator ResetAnimation(string animationName)
+    void ToggleOff(string Name)
     {
-        yield return new WaitForSeconds(0.5f); // Adjust the delay based on your animation duration
-        animator.SetBool(animationName, false); // Reset the animation
+        animator.SetBool(Name, false);
+        isJumpDown = false;
+    }
+
+    void JumpDown()
+    {
+        isJumpDown = true;
+    }
+
+    private void OnAnimatorMove()
+    {
+        if (gameStarted) // Only move the player if the game has started
+        {
+            if (animator.GetBool("jump"))
+            {
+                if (isJumpDown)
+                {
+                    rb.MovePosition(rb.position + new Vector3(1, 20, 0) * animator.deltaPosition.magnitude);
+                }
+                else
+                {
+                    rb.MovePosition(rb.position + new Vector3(1, 1000f, 2) * animator.deltaPosition.magnitude);
+                }
+            }
+            else
+            {
+                rb.MovePosition(rb.position + new Vector3(1, 2, 0) * animator.deltaPosition.magnitude);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("obs") && !isGameOver)
+        if (collision.collider.CompareTag("obs"))
         {
-            isGameOver = true; // Prevent multiple triggers of game over
-            TriggerGameOverSequence();
+            animator.SetBool("fall", true);
         }
-    }
-
-    private void TriggerGameOverSequence()
-    {
-        animator.SetBool("fall", true); // Trigger fall (dead) animation
-        StartCoroutine(GameOverCoroutine()); // Start the coroutine to delay game over screen
-    }
-
-    private IEnumerator GameOverCoroutine()
-    {
-        yield return new WaitForSeconds(0.5f); // Wait for 0.5 seconds
-        SceneManager.LoadScene("gameover"); // Load the game over screen
     }
 
     // Adjust collider size and position for sliding
@@ -150,6 +151,7 @@ public class players : MonoBehaviour
     private void StartRunning()
     {
         animator.SetBool("idle", false); // Turn off idle animation
+        animator.SetBool("run", true);  // Start the run animation
     }
 
     // Function to quit the game
@@ -162,5 +164,12 @@ public class players : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("Game is exiting...");
 #endif
+    }
+
+    // Function to handle game over
+    private void GameOver()
+    {
+        // Load the Game Over scene
+        SceneManager.LoadScene("gameover");
     }
 }

@@ -2,10 +2,11 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GameOverManager
+    - GameOverScoreDisplay
     - MainMenu
-    - Scores
     - TrackManager
     - players
+    - scores
     - slide
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -23,10 +24,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -79,7 +78,7 @@ ScriptsOnlyBuild:
     methodName: StartGame
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
-    methodName: StartGame
+    methodName: QuitGame
   - assembly: Assembly-CSharp
     fullTypeName: GameOverManager
     methodName: RetryGame
@@ -145,9 +144,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5574}
     - Class: 114
-      Script: {instanceID: 5724}
+      Script: {instanceID: 5726}
     - Class: 114
-      Script: {instanceID: 6038}
+      Script: {instanceID: 6040}
+    - Class: 114
+      Script: {instanceID: 7620}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -190,6 +191,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1612}
     - Class: 114
+      Script: {instanceID: 2066}
+    - Class: 114
       Script: {instanceID: 2618}
     - Class: 114
       Script: {instanceID: 2620}
@@ -198,7 +201,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3110}
     - Class: 114
-      Script: {instanceID: 4848}
+      Script: {instanceID: 3634}
     - Class: 114
       Script: {instanceID: 5028}
     - Class: 114
@@ -206,9 +209,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5574}
     - Class: 114
-      Script: {instanceID: 5724}
+      Script: {instanceID: 5726}
     - Class: 114
-      Script: {instanceID: 6038}
+      Script: {instanceID: 6040}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,9 +272,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5574}
     - Class: 114
-      Script: {instanceID: 6038}
+      Script: {instanceID: 6040}
     - Class: 114
-      Script: {instanceID: 7410}
+      Script: {instanceID: 7414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -357,7 +360,7 @@ ScriptsOnlyBuild:
     className: players
   - hash:
       serializedVersion: 2
-      Hash: dceebda905eba54e9f7b98b3e7bad339
+      Hash: d0875821b437dfc415278a091faf32d1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameOverScoreDisplay
@@ -801,10 +804,10 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: e9c818540dd9348b38d07d781da901d8
+      Hash: ef629ea4b9916a2ad6e2751cf56f6a99
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Scores
+    className: scores
   - hash:
       serializedVersion: 2
       Hash: 47ee34eb8b6021efa0289dbbb17a5a85
@@ -907,6 +910,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: AnimatorMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: c889a8c8b86d30055e0a9d9d02dca4da
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManagers
   - hash:
       serializedVersion: 2
       Hash: 33656f83bb0079184b2206a69690ec46
@@ -1053,6 +1062,12 @@ ScriptsOnlyBuild:
     className: UnityOnScrollRectValueChangedMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 4081057898096f331dec86e890145da9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ScoreData
+  - hash:
+      serializedVersion: 2
       Hash: 830c3b545f6e6ee60a4cebab90516f2c
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -1153,12 +1168,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
-  - hash:
-      serializedVersion: 2
-      Hash: 932f54f5129f624daa93fc34be5093e0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: ScoreManager
   - hash:
       serializedVersion: 2
       Hash: ff76cf6cf52b4db7b95af6ffadca9288

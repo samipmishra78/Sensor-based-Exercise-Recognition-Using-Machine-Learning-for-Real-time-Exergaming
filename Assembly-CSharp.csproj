@@ -70,10 +70,12 @@
     <Compile Include="Assets\slide.cs" />
     <Compile Include="Assets\Scenes\script\players.cs" />
     <Compile Include="Assets\Scenes\script\regeneration.cs" />
+    <Compile Include="Assets\Scenes\script\GameManager.cs" />
     <Compile Include="Assets\Scenes\script\FloatingOrigin.cs" />
     <Compile Include="Assets\Scenes\script\score.cs" />
     <Compile Include="Assets\Scenes\script\player.cs" />
     <Compile Include="Assets\Scenes\script\TotalScore.cs" />
+    <Compile Include="Assets\Scenes\script\ScoreData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
