@@ -33,7 +33,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("obs"))
         {
             // Stop the player's current velocity to prevent passing through
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
             // Optionally, freeze the player's position and rotation to make them "stuck"

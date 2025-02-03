@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // Required for scene management
+using UnityEngine.UI; // Required for UI components
+using System.Collections; // Required for coroutines
 
 public class players : MonoBehaviour
 {
@@ -14,12 +16,30 @@ public class players : MonoBehaviour
 
     public static int CurrentTile = 0;
 
+    public static int totalScore = 0; // Total score of the player
+
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip slideSound;
+    [SerializeField] private AudioClip runSound;
+    [SerializeField] private AudioClip gameOverSound;
+    private AudioSource audioSource;
+
+    private float runSoundCooldown = 0.5f; // Cooldown for running sound
+    private float lastRunSoundTime = -1f;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        audioSource = GetComponent<AudioSource>();
+
+        // Check and log AudioSource
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component is missing on this GameObject.");
+        }
 
         // Save the original collider values
         if (capsuleCollider != null)
@@ -56,18 +76,28 @@ public class players : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) // Trigger slide
         {
             animator.SetBool("slide", true);
+            PlaySound(slideSound);
             AdjustColliderForSlide();
+            IncreaseScore(10); // Increase score for sliding
         }
         else if (Input.GetKey(KeyCode.Space)) // Trigger jump
         {
             animator.SetBool("jump", true);
+            PlaySound(jumpSound);
             ResetCollider(); // Reset collider after jumping
+            IncreaseScore(15); // Increase score for jumping
         }
         else if (Input.GetKey(KeyCode.W)) // Trigger running
         {
             animator.SetBool("run", true);
             animator.SetBool("idle", false); // Ensure idle is off while running
+            if (Time.time - lastRunSoundTime > runSoundCooldown)
+            {
+                PlaySound(runSound);
+                lastRunSoundTime = Time.time;
+            }
             ResetCollider();
+            IncreaseScore(5); // Increase score for running
         }
         else
         {
@@ -84,17 +114,6 @@ public class players : MonoBehaviour
         {
             GameOver();
         }
-    }
-
-    void ToggleOff(string Name)
-    {
-        animator.SetBool(Name, false);
-        isJumpDown = false;
-    }
-
-    void JumpDown()
-    {
-        isJumpDown = true;
     }
 
     private void OnAnimatorMove()
@@ -124,6 +143,7 @@ public class players : MonoBehaviour
         if (collision.collider.CompareTag("obs"))
         {
             animator.SetBool("fall", true);
+            PlaySound(gameOverSound);
         }
     }
 
@@ -152,12 +172,12 @@ public class players : MonoBehaviour
     {
         animator.SetBool("idle", false); // Turn off idle animation
         animator.SetBool("run", true);  // Start the run animation
+        PlaySound(runSound);
     }
 
     // Function to quit the game
     private void QuitGame()
     {
-        // Quit the application
         Application.Quit();
 
         // Log a message in the Unity editor to simulate quitting
@@ -169,7 +189,39 @@ public class players : MonoBehaviour
     // Function to handle game over
     private void GameOver()
     {
-        // Load the Game Over scene
-        SceneManager.LoadScene("gameover");
+        StartCoroutine(HandleGameOver());
+    }
+
+    // Coroutine to handle game-over delay
+    private IEnumerator HandleGameOver()
+    {
+        yield return new WaitForSeconds(1f); // Wait for 5 seconds
+        SceneManager.LoadScene("gameover"); // Load the game-over scene
+    }
+
+    // Function to play sound
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource is missing!");
+            return;
+        }
+
+        if (clip == null)
+        {
+            Debug.LogWarning("AudioClip is not assigned for this action!");
+            return;
+        }
+
+        Debug.Log($"Playing sound: {clip.name}");
+        audioSource.PlayOneShot(clip);
+    }
+
+    // Function to increase score
+    private void IncreaseScore(int increment)
+    {
+        totalScore += increment;
+        Debug.Log($"Score: {totalScore}");
     }
 }
