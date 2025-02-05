@@ -401,6 +401,7 @@
 "Assets/Scenes/script/game over.cs"
 "Assets/Scenes/script/GameManager.cs"
 "Assets/Scenes/script/gamescneD.cs"
+"Assets/Scenes/script/gamestats.cs"
 "Assets/Scenes/script/mainmenu.cs"
 "Assets/Scenes/script/music.cs"
 "Assets/Scenes/script/naya_player.cs"

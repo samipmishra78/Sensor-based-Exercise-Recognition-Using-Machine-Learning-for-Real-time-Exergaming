@@ -84,6 +84,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scenes\script\TotalScore.cs" />
+    <Compile Include="Assets\Scenes\script\gamestats.cs" />
     <Compile Include="Assets\Scenes\script\gamescneD.cs" />
     <Compile Include="Assets\Scenes\script\mainmenu.cs" />
     <Compile Include="Assets\score.cs" />

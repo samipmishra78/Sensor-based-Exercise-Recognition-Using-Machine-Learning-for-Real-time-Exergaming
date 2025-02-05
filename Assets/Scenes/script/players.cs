@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for scene management
-using UnityEngine.UI; // Required for UI components
-using System.Collections; // Required for coroutines
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class players : MonoBehaviour
 {
@@ -12,11 +11,9 @@ public class players : MonoBehaviour
     private Vector3 originalCenter;
     private float originalHeight;
     private bool isJumpDown = false;
-    private bool gameStarted = false; // Flag to check if the game has started
+    private bool gameStarted = false;
 
-    public static int CurrentTile = 0;
-
-    public static int totalScore = 0; // Total score of the player
+    public static int totalScore = 0;
 
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip slideSound;
@@ -24,10 +21,9 @@ public class players : MonoBehaviour
     [SerializeField] private AudioClip gameOverSound;
     private AudioSource audioSource;
 
-    private float runSoundCooldown = 0.5f; // Cooldown for running sound
+    private float runSoundCooldown = 0.5f;
     private float lastRunSoundTime = -1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,27 +31,17 @@ public class players : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         audioSource = GetComponent<AudioSource>();
 
-        // Check and log AudioSource
-        if (audioSource == null)
-        {
-            Debug.LogError("AudioSource component is missing on this GameObject.");
-        }
-
-        // Save the original collider values
         if (capsuleCollider != null)
         {
             originalCenter = capsuleCollider.center;
             originalHeight = capsuleCollider.height;
         }
 
-        // Set the animator to idle at the start
         animator.SetBool("idle", true);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Exit the game if Esc is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             QuitGame();
@@ -63,53 +49,52 @@ public class players : MonoBehaviour
 
         if (!gameStarted)
         {
-            // Wait for the player to press the W key to start the game
             if (Input.GetKeyDown(KeyCode.W))
             {
                 StartRunning();
-                gameStarted = true; // Set the game as started
+                gameStarted = true;
             }
-            return; // Prevent other inputs before the game starts
+            return;
         }
 
-        // Movement and actions during gameplay
-        if (Input.GetKey(KeyCode.S)) // Trigger slide
+        if (Input.GetKey(KeyCode.S))
         {
             animator.SetBool("slide", true);
             PlaySound(slideSound);
             AdjustColliderForSlide();
-            IncreaseScore(10); // Increase score for sliding
+            IncreaseScore(10);
+            GameStats.slideCount++;
         }
-        else if (Input.GetKey(KeyCode.Space)) // Trigger jump
+        else if (Input.GetKey(KeyCode.Space))
         {
             animator.SetBool("jump", true);
             PlaySound(jumpSound);
-            ResetCollider(); // Reset collider after jumping
-            IncreaseScore(15); // Increase score for jumping
+            ResetCollider();
+            IncreaseScore(15);
+            GameStats.jumpCount++;
         }
-        else if (Input.GetKey(KeyCode.W)) // Trigger running
+        else if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("run", true);
-            animator.SetBool("idle", false); // Ensure idle is off while running
+            animator.SetBool("idle", false);
             if (Time.time - lastRunSoundTime > runSoundCooldown)
             {
                 PlaySound(runSound);
                 lastRunSoundTime = Time.time;
             }
             ResetCollider();
-            IncreaseScore(5); // Increase score for running
+            IncreaseScore(5);
+            GameStats.joggingTime += Time.deltaTime;
         }
         else
         {
-            // Default to idle when no key is pressed
             animator.SetBool("idle", true);
             animator.SetBool("run", false);
             animator.SetBool("slide", false);
             animator.SetBool("jump", false);
-            ResetCollider(); // Reset collider to default size and position
+            ResetCollider();
         }
 
-        // Check if the "fall" animation is active
         if (animator.GetBool("fall"))
         {
             GameOver();
@@ -118,7 +103,7 @@ public class players : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        if (gameStarted) // Only move the player if the game has started
+        if (gameStarted)
         {
             if (animator.GetBool("jump"))
             {
@@ -147,17 +132,15 @@ public class players : MonoBehaviour
         }
     }
 
-    // Adjust collider size and position for sliding
     private void AdjustColliderForSlide()
     {
         if (capsuleCollider != null)
         {
-            capsuleCollider.height = originalHeight / 2; // Reduce height
-            capsuleCollider.center = new Vector3(originalCenter.x, originalCenter.y / 2, originalCenter.z); // Lower center
+            capsuleCollider.height = originalHeight / 2;
+            capsuleCollider.center = new Vector3(originalCenter.x, originalCenter.y / 2, originalCenter.z);
         }
     }
 
-    // Reset collider to its original size and position
     private void ResetCollider()
     {
         if (capsuleCollider != null)
@@ -167,61 +150,43 @@ public class players : MonoBehaviour
         }
     }
 
-    // Function to start running
     private void StartRunning()
     {
-        animator.SetBool("idle", false); // Turn off idle animation
-        animator.SetBool("run", true);  // Start the run animation
+        animator.SetBool("idle", false);
+        animator.SetBool("run", true);
         PlaySound(runSound);
     }
 
-    // Function to quit the game
     private void QuitGame()
     {
         Application.Quit();
-
-        // Log a message in the Unity editor to simulate quitting
 #if UNITY_EDITOR
         Debug.Log("Game is exiting...");
 #endif
     }
 
-    // Function to handle game over
     private void GameOver()
     {
+        GameStats.finalScore = totalScore;
         StartCoroutine(HandleGameOver());
     }
 
-    // Coroutine to handle game-over delay
     private IEnumerator HandleGameOver()
     {
-        yield return new WaitForSeconds(1f); // Wait for 5 seconds
-        SceneManager.LoadScene("gameover"); // Load the game-over scene
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("gameover");
     }
 
-    // Function to play sound
     private void PlaySound(AudioClip clip)
     {
-        if (audioSource == null)
+        if (audioSource != null && clip != null)
         {
-            Debug.LogError("AudioSource is missing!");
-            return;
+            audioSource.PlayOneShot(clip);
         }
-
-        if (clip == null)
-        {
-            Debug.LogWarning("AudioClip is not assigned for this action!");
-            return;
-        }
-
-        Debug.Log($"Playing sound: {clip.name}");
-        audioSource.PlayOneShot(clip);
     }
 
-    // Function to increase score
     private void IncreaseScore(int increment)
     {
         totalScore += increment;
-        Debug.Log($"Score: {totalScore}");
     }
 }

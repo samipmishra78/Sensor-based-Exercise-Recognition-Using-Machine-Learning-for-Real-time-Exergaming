@@ -4,12 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public TextMeshProUGUI statsText;
+    public TextMeshProUGUI calorieBurnText; // UI for Calories Burned
+
     private Vector3[] initialPositions;
     private Transform[] tiles;
 
     void Start()
     {
-        // Cache the initial positions of all tiles at the start
+        // Calculate Calories Burned
+        GameStats.CalculateCaloriesBurned();
+
+        if (statsText != null)
+        {
+            statsText.text = $"Jumps: {GameStats.jumpCount}\n" +
+                             $"Squats (Slides): {GameStats.slideCount}\n" +
+                             $"Jogging Time: {GameStats.joggingTime:F2} seconds\n" +
+                             $"Final Score: {GameStats.finalScore}";
+        }
+
+        if (calorieBurnText != null)
+        {
+            calorieBurnText.text = $"Calories Burned: {GameStats.caloriesBurned:F2} kcal";
+        }
+
         TrackManager trackManager = FindObjectOfType<TrackManager>();
         if (trackManager != null)
         {
@@ -25,7 +43,6 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryGame()
     {
-        // Reset the tile positions
         if (tiles != null && initialPositions != null)
         {
             for (int i = 0; i < tiles.Length; i++)
@@ -34,12 +51,12 @@ public class GameOverManager : MonoBehaviour
             }
         }
 
-        SceneManager.LoadScene("game"); // Replace "game" with your actual scene name if it's different
+        GameStats.ResetStats();
+        SceneManager.LoadScene("game");
     }
 
     public void QuitToMenu()
     {
-        // Load the Menu Scene
         SceneManager.LoadScene("mainmenu");
     }
 }
