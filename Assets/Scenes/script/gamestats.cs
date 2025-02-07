@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class GameStats
 {
@@ -12,18 +12,19 @@ public static class GameStats
 
     public static void CalculateCaloriesBurned()
     {
-        float weightLbs = weightKg * 2.2f; // Convert weight to pounds
-        float joggingMinutes = joggingTime / 60f; // Convert seconds to minutes
+        float joggingHours = joggingTime / 3600f; // Convert seconds to hours
+        float jumpMinutes = jumpCount * 0.3f / 60f; // Each jump ~ 0.3 sec
+        float slideMinutes = slideCount * 1.0f / 60f; // Each slide ~ 1.0 sec
 
-        // MET-based calorie calculations
-        float joggingCalories = ((8.0f * 7.7f * weightLbs) / 200) * (joggingMinutes / 60f);
-        float jumpCalories = ((6.0f * 7.7f * weightLbs) / 200) * (jumpCount / 60f);
-        float squatCalories = ((3.0f * 7.7f * weightLbs) / 200) * (slideCount / 60f);
+        // MET-based calorie calculations with reduced values
+        float joggingCalories = 6.0f * weightKg * joggingHours;  // Jogging MET = 6.0
+        float jumpCalories = 7.0f * weightKg * (jumpMinutes / 60f); // Jumping MET = 7.0
+        float squatCalories = 4.0f * weightKg * (slideMinutes / 60f); // Sliding MET = 4.0
 
-        // Total Calories Burned
-        caloriesBurned = joggingCalories + jumpCalories + squatCalories;
+        // Apply a slight reduction factor (90%) to further adjust for game pacing
+        caloriesBurned = (joggingCalories + jumpCalories + squatCalories) * 0.9f;
     }
-
+     
     public static void ResetStats()
     {
         jumpCount = 0;

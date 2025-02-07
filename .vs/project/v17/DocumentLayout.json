@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\SAMIP_2\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|c:\\users\\samip_2\\project\\assets\\scenes\\script\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\gamestats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\gamestats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|c:\\users\\samip_2\\project\\assets\\scenes\\script\\gamestats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\gamestats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|c:\\users\\samip_2\\project\\assets\\scenes\\script\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\game over.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\script\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CA597AC-799E-2D81-E8A0-0EA9A568434E}|Assembly-CSharp.csproj|C:\\Users\\SAMIP_2\\project\\assets\\scenes\\script\\totalscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "players.cs",
               "DocumentMoniker": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\players.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\script\\players.cs",
               "ToolTip": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\players.cs",
               "RelativeToolTip": "Assets\\Scenes\\script\\players.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALcAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T03:59:50.919Z",
               "IsPinned": true,
@@ -96,13 +96,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "gamestats.cs",
               "DocumentMoniker": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\gamestats.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\script\\gamestats.cs",
               "ToolTip": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\gamestats.cs",
               "RelativeToolTip": "Assets\\Scenes\\script\\gamestats.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAUwCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T12:14:13.893Z",
               "EditorCaption": ""
@@ -121,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "game over.cs",
               "DocumentMoniker": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\game over.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\script\\game over.cs",
@@ -129,8 +129,7 @@
               "RelativeToolTip": "Assets\\Scenes\\script\\game over.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAIwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T01:39:06.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T01:39:06.972Z"
             },
             {
               "$type": "Document",
@@ -158,19 +157,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "score.cs",
               "DocumentMoniker": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\score.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\script\\score.cs",
               "ToolTip": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\score.cs",
               "RelativeToolTip": "Assets\\Scenes\\script\\score.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T13:28:33.621Z"
+              "WhenOpened": "2024-11-13T13:28:33.621Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\SAMIP_2\\project\\Assets\\Scenes\\script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\script\\GameManager.cs",
@@ -178,8 +178,7 @@
               "RelativeToolTip": "Assets\\Scenes\\script\\GameManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T10:05:14.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T10:05:14.563Z"
             },
             {
               "$type": "Document",

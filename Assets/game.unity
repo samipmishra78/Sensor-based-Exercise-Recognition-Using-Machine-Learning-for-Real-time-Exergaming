@@ -1909,7 +1909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ef1e14192adb94a8a3c603de17fada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScore: 0
 --- !u!4 &1058417469
 Transform:
   m_ObjectHideFlags: 0
@@ -3212,6 +3211,7 @@ GameObject:
   - component: {fileID: 1854930030}
   - component: {fileID: 1854930029}
   - component: {fileID: 1854930032}
+  - component: {fileID: 1854930033}
   m_Layer: 5
   m_Name: scoreText
   m_TagString: Untagged
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE:'
+  m_text: SCORE:0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3353,6 +3353,20 @@ MonoBehaviour:
   slideSound: {fileID: 0}
   runSound: {fileID: 0}
   gameOverSound: {fileID: 0}
+--- !u!114 &1854930033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854930027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300e36a0ca079134a91a4175d6af6dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1854930029}
+  scoreInterval: 1
 --- !u!4 &1877889437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a0d6b790d997fdb4e9eebf67c81120c9, type: 3}
