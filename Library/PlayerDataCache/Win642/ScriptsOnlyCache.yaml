@@ -2,14 +2,15 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ButtonSoundManager
-    - GameManager
+    - GameManagers
     - GameOverManager
-    - GameOverScoreDisplay
     - MainMenu
     - MainMenuButtonSound
+    - Players
+    - Scores
     - TrackManager
-    - players
-    - scores
+    - WeightInput
+    - listener
     - slide
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -21,6 +22,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -28,10 +30,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -45,6 +45,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RawImage
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
   serializedClasses:
     Unity.TextMeshPro:
@@ -55,6 +58,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Character
     - TMPro.TMP_FontFeatureTable
     - TMPro.TMP_FontWeightPair
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -87,6 +95,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: WeightInput
+    methodName: StoreWeightAndStartGame
   - assembly: Assembly-CSharp
     fullTypeName: GameOverManager
     methodName: RetryGame
@@ -138,31 +149,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 8256}
+      Script: {instanceID: 8290}
     - Class: 114
-      Script: {instanceID: 8452}
+      Script: {instanceID: 8486}
     - Class: 114
-      Script: {instanceID: 8686}
+      Script: {instanceID: 8720}
     - Class: 114
-      Script: {instanceID: 9780}
+      Script: {instanceID: 9824}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10268}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10464}
     - Class: 114
-      Script: {instanceID: 10560}
+      Script: {instanceID: 10612}
     - Class: 114
-      Script: {instanceID: 11336}
+      Script: {instanceID: 11390}
     - Class: 114
-      Script: {instanceID: 12742}
+      Script: {instanceID: 12706}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 13312}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13376}
     - Class: 114
-      Script: {instanceID: 14610}
+      Script: {instanceID: 13778}
+    - Class: 114
+      Script: {instanceID: 14678}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -203,29 +216,27 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 8452}
+      Script: {instanceID: 8486}
     - Class: 114
-      Script: {instanceID: 8686}
+      Script: {instanceID: 8720}
     - Class: 114
-      Script: {instanceID: 9772}
+      Script: {instanceID: 9816}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10268}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10464}
     - Class: 114
-      Script: {instanceID: 10566}
+      Script: {instanceID: 10664}
     - Class: 114
-      Script: {instanceID: 10610}
+      Script: {instanceID: 10690}
     - Class: 114
-      Script: {instanceID: 10636}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 12742}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 12860}
-    - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13778}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -251,7 +262,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
@@ -266,33 +283,98 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 8438}
+      Script: {instanceID: 8472}
     - Class: 114
-      Script: {instanceID: 8686}
+      Script: {instanceID: 8486}
     - Class: 114
-      Script: {instanceID: 9146}
+      Script: {instanceID: 8720}
     - Class: 114
-      Script: {instanceID: 9772}
+      Script: {instanceID: 9184}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 9816}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10268}
     - Class: 114
-      Script: {instanceID: 10636}
+      Script: {instanceID: 10464}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 10690}
     - Class: 114
-      Script: {instanceID: 12568}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12628}
     - Class: 114
-      Script: {instanceID: 12772}
+      Script: {instanceID: 12682}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13656}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13720}
+    - Class: 114
+      Script: {instanceID: 13778}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/weight.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 8486}
+    - Class: 114
+      Script: {instanceID: 8720}
+    - Class: 114
+      Script: {instanceID: 9576}
+    - Class: 114
+      Script: {instanceID: 9622}
+    - Class: 114
+      Script: {instanceID: 9816}
+    - Class: 114
+      Script: {instanceID: 10268}
+    - Class: 114
+      Script: {instanceID: 10464}
+    - Class: 114
+      Script: {instanceID: 10528}
+    - Class: 114
+      Script: {instanceID: 10690}
+    - Class: 114
+      Script: {instanceID: 12240}
+    - Class: 114
+      Script: {instanceID: 12924}
+    - Class: 114
+      Script: {instanceID: 13564}
+    - Class: 114
+      Script: {instanceID: 13778}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -378,6 +460,12 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: d4e40ba71241689e5967f567ad559d40
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SerialReader
+  - hash:
+      serializedVersion: 2
       Hash: 9ebc0a3016506a0cbb7e0306dfcb9497
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -394,6 +482,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: be7b8f844d2879f581c50b52b7ffe58a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SampleTearDown
   - hash:
       serializedVersion: 2
       Hash: 1ce63d97d1ca25cba2d91d5f32fd5f79
@@ -490,6 +584,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 4870e2a8b6b0c7f9626d38992036d7ba
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SerialControllerCustomDelimiter
   - hash:
       serializedVersion: 2
       Hash: 1553f209ae0b2d5d3a35685fca55f9c3
@@ -624,6 +724,12 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
+      Hash: 3f3228fb3b08dada77fe0b2f04badcbf
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SampleCustomDelimiter
+  - hash:
+      serializedVersion: 2
       Hash: 1bc6ff8d02d2d68019aa6a028f8d409d
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -684,19 +790,37 @@ ScriptsOnlyBuild:
     className: UnityOnMoveMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 228dc694fd9bb9f0b907923d60b9b582
+      Hash: da8e635ef5409de5ca347c84e7d3d5c9
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: players
+    className: WeightInput
   - hash:
       serializedVersion: 2
-      Hash: 1714675ae58c940cb775a16347d4b9a7
+      Hash: 7eac42f1fc33753f6159623b9b43b0c9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SampleUserPolling_ReadWrite
+  - hash:
+      serializedVersion: 2
+      Hash: 2af1025f9fb63fb130b87737b4830ba3
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Players
+  - hash:
+      serializedVersion: 2
+      Hash: a68ac41d8ac9df95e1da356a67581a5a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SampleUserPolling_JustRead
+  - hash:
+      serializedVersion: 2
+      Hash: d0875821b437dfc415278a091faf32d1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameOverScoreDisplay
   - hash:
       serializedVersion: 2
-      Hash: 5999476a429cf1d4c9b10cbbb41e419a
+      Hash: 3e0f2e843fddf5d632b18da04978f2b3
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameOverManager
@@ -912,10 +1036,22 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: 16da657cc922ee15cb578e5acaa09812
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SerialController
+  - hash:
+      serializedVersion: 2
       Hash: b5007673bbbdb9d12597a1d8201370f5
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 1e8feb7c72751427fae3e1d85b862828
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SampleMessageListener
   - hash:
       serializedVersion: 2
       Hash: 4081057898096f331dec86e890145da9
@@ -1056,6 +1192,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 80318b749a35a3a36993478eaba83b66
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: listener
+  - hash:
+      serializedVersion: 2
       Hash: c9b1ea3bf987a2e780a24849503ca72e
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1170,10 +1312,10 @@ ScriptsOnlyBuild:
     className: TMP_ExampleScript_01
   - hash:
       serializedVersion: 2
-      Hash: e47d77dff9f7fd0f54480d10a98b411f
+      Hash: c889a8c8b86d30055e0a9d9d02dca4da
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: GameManager
+    className: GameManagers
   - hash:
       serializedVersion: 2
       Hash: 130d701b3207e7e26dfdfef042503d11
@@ -1374,10 +1516,10 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStay2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ef629ea4b9916a2ad6e2751cf56f6a99
+      Hash: 7e9eb009f077a6d157a4764758d10f44
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: scores
+    className: Scores
   - hash:
       serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
@@ -1399,6 +1541,7 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/mainmenu.unity
+  - Assets/weight.unity
   - Assets/game.unity
   - Assets/gameover.unity
-  playerPath: C:/Users/SAMIP_2/Downloads/project_Data/project.exe
+  playerPath: D:/Downloads/project.exe

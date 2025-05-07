@@ -43,6 +43,7 @@ public class TrackManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int randomTile;
+        //float randomTile;
 
         // Generate a random tile to move
         if (CurrentTile == Tiles.Count - 1)
@@ -56,9 +57,7 @@ public class TrackManager : MonoBehaviour
 
         // Move the new tile to the correct position
         Tiles[randomTile].transform.position = new Vector3(
-            Tiles[CurrentTile].transform.position.x + 192,
-            0,
-            0
+            Tiles[CurrentTile].transform.position.x + 58,1,-1.15f
         );
 
         // Update the current tile index

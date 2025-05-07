@@ -8,7 +8,8 @@ public class GameOverScoreDisplay : MonoBehaviour
 
     void Start()
     {
-        // Retrieve the final score from the scores script and display it
-        scoreDisplayText.text = "FINAL SCORE: " + scores.finalScore.ToString();
+        // Access the final score from GameStats, divide it by 1000, and display it
+        int finalScoreQuotient = GameStats.finalScore / 1000;  // Divide the final score by 1000 to get the quotient
+        scoreDisplayText.text = "FINAL SCORE: " + finalScoreQuotient.ToString();  // Display the quotient value
     }
 }

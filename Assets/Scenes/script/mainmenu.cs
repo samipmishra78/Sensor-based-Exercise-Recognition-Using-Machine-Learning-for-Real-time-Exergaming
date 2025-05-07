@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         // Load the scene named "game"
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("weight");
     }
 
     // Called when the Quit button is clicked

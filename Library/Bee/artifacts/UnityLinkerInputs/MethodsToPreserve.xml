@@ -8,5 +8,8 @@
 			<method name="QuitGame"/>
 			<method name="StartGame"/>
 		</type>
+		<type fullname="WeightInput">
+			<method name="StoreWeightAndStartGame"/>
+		</type>
 	</assembly>
 </linker>

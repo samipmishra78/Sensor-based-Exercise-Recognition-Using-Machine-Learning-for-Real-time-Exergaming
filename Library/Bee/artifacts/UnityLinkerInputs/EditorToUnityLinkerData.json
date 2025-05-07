@@ -30,7 +30,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -41,13 +42,14 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "GameManager",
+            "fullManagedTypeName": "GameManagers",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -55,13 +57,6 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "GameOverManager",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "Assembly-CSharp.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "GameOverScoreDisplay",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -80,8 +75,16 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "listener",
+            "moduleName": "",
+            "usedInScenes": []
         },
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
@@ -112,7 +115,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -130,7 +134,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -143,7 +148,7 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "players",
+            "fullManagedTypeName": "Players",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -164,7 +169,7 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "scores",
+            "fullManagedTypeName": "Scores",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -207,6 +212,13 @@
             "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
             "fullManagedTypeName": "TMPro.TMP_FontAsset",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_InputField",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -276,7 +288,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -360,7 +373,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -381,7 +395,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -410,7 +425,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -430,7 +446,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -441,7 +458,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -452,7 +470,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -481,7 +500,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -490,7 +510,8 @@
             "fullManagedTypeName": "UnityEngine.Cubemap",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/gameover.unity"
+                "Assets/gameover.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -515,7 +536,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -526,7 +548,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -537,7 +560,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -548,7 +572,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -559,7 +584,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -568,7 +594,8 @@
             "fullManagedTypeName": "UnityEngine.Mesh",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/game.unity"
+                "Assets/game.unity",
+                "Assets/mainmenu.unity"
             ]
         },
         {
@@ -586,7 +613,8 @@
             "fullManagedTypeName": "UnityEngine.MeshFilter",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/game.unity"
+                "Assets/game.unity",
+                "Assets/mainmenu.unity"
             ]
         },
         {
@@ -595,7 +623,8 @@
             "fullManagedTypeName": "UnityEngine.MeshRenderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/game.unity"
+                "Assets/game.unity",
+                "Assets/mainmenu.unity"
             ]
         },
         {
@@ -606,7 +635,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -626,7 +656,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -644,7 +675,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -653,7 +685,8 @@
             "fullManagedTypeName": "UnityEngine.Renderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/game.unity"
+                "Assets/game.unity",
+                "Assets/mainmenu.unity"
             ]
         },
         {
@@ -671,7 +704,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -700,7 +734,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -719,7 +754,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -730,7 +766,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -741,7 +778,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -752,7 +790,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -763,7 +802,8 @@
             "usedInScenes": [
                 "Assets/game.unity",
                 "Assets/gameover.unity",
-                "Assets/mainmenu.unity"
+                "Assets/mainmenu.unity",
+                "Assets/weight.unity"
             ]
         },
         {
@@ -797,7 +837,35 @@
         {
             "managedAssemblyName": "UnityEngine.UI.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.UI.LayoutElement",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.UI.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.UI.RawImage",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.UI.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.UI.RectMask2D",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.UI.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.UI.Text",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "WeightInput",
             "moduleName": "",
             "usedInScenes": []
         }

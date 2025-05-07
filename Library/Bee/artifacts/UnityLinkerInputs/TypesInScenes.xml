@@ -1,20 +1,22 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="ButtonSoundManager" preserve="nothing"/>
-		<type fullname="GameManager" preserve="nothing"/>
+		<type fullname="GameManagers" preserve="nothing"/>
 		<type fullname="GameOverManager" preserve="nothing"/>
-		<type fullname="GameOverScoreDisplay" preserve="nothing"/>
+		<type fullname="listener" preserve="nothing"/>
 		<type fullname="MainMenu" preserve="nothing"/>
 		<type fullname="MainMenuButtonSound" preserve="nothing"/>
-		<type fullname="players" preserve="nothing"/>
-		<type fullname="scores" preserve="nothing"/>
+		<type fullname="Players" preserve="nothing"/>
+		<type fullname="Scores" preserve="nothing"/>
 		<type fullname="slide" preserve="nothing"/>
 		<type fullname="TrackManager" preserve="nothing"/>
+		<type fullname="WeightInput" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.TextMeshPro">
 		<type fullname="TMPro.TextMeshProUGUI" preserve="nothing"/>
 		<type fullname="TMPro.TMP_ColorGradient" preserve="nothing"/>
 		<type fullname="TMPro.TMP_FontAsset" preserve="nothing"/>
+		<type fullname="TMPro.TMP_InputField" preserve="nothing"/>
 		<type fullname="TMPro.TMP_Settings" preserve="nothing"/>
 		<type fullname="TMPro.TMP_SpriteAsset" preserve="nothing"/>
 		<type fullname="TMPro.TMP_StyleSheet" preserve="nothing"/>
@@ -81,6 +83,9 @@
 		<type fullname="UnityEngine.UI.CanvasScaler" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.GraphicRaycaster" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Image" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.LayoutElement" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.RawImage" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.RectMask2D" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Text" preserve="nothing"/>
 	</assembly>
 </linker>
